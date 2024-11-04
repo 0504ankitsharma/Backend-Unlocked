@@ -524,7 +524,7 @@ performTask()
 2. **`.catch()` Method**:
    - This method is used to handle errors or a rejected Promise. If `performTask` fails (i.e., `reject` is called), `catch()` receives the error (`'Task failed!'`) and prints it.
 
-### `.finally()` Method:
+3. **`.then()` Method**:
 - **`.finally()`** runs code after the Promise is settled, no matter if it was successful or failed. It's useful for cleanup actions.
 ```javascript
 performTask()
@@ -545,37 +545,6 @@ In this example, `"Promise is done!"` is printed regardless of whether the task 
 2. **Fulfilled** ➔ Success! The `.then()` block runs.
 3. **Rejected** ➔ Error! The `.catch()` block runs.
 4. **Settled (either fulfilled or rejected)** ➔ The `.finally()` block runs.
-
-### Creating and Using Promises
-**Example of a Promise in Node.js:**
-```javascript
-const performTask = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const success = true; // Simulate success or failure
-      if (success) {
-        resolve('Task completed successfully!');
-      } else {
-        reject('Task failed!');
-      }
-    }, 1000); // Simulate async operation with setTimeout
-  });
-};
-
-// Using the promise
-performTask()
-  .then(result => {
-    console.log(result); // Output: Task completed successfully!
-  })
-  .catch(error => {
-    console.error(error); // If failed, prints: Task failed!
-  });
-```
-
-### Key Methods of Promises
-- **`.then()`**: Used to handle the resolved value of the promise.
-- **`.catch()`**: Used to handle any errors that occur during the execution.
-- **`.finally()`**: Runs code after the promise is settled (resolved or rejected).
 
 ## 2. Async/Await
 **Async/Await** is syntactic sugar built on top of Promises, making asynchronous code look and behave more like synchronous code. This improves readability and makes it easier to write and maintain.
