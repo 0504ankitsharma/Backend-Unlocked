@@ -225,8 +225,8 @@ function myTag(strings, ...values) {
   return output.toUpperCase();
 }
 
-let name = 'alice';
-let age = 25;
+let name = 'Ankit';
+let age = 19;
 let message = myTag`My name is ${name} and I am ${age} years old.`;
 console.log(message); // Output: MY NAME IS ALICE AND I AM 25 YEARS OLD.
 ```
