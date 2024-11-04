@@ -375,3 +375,89 @@ app.post('/users', (req, res) => {
 In this example, the `name`, `email`, and `age` properties are extracted from the `req.body` object and assigned to variables with the same names. This allows the route handler to work with these values directly, without having to access them using dot notation (e.g., `req.body.name`).
 
 Object destructuring can also be used to extract values from nested objects, or to assign default values if a property is missing. It helps make your code more concise and readable, especially when working with complex data structures.
+
+
+
+# Introduction to Arrow Functions and Callbacks in Node.js
+
+## 1. Arrow Functions in Express Middleware
+Arrow functions are a shorthand for writing functions in JavaScript. They are often used in Express middleware because they provide a concise way to write functions and help maintain a clean code structure.
+
+### What are Arrow Functions?
+Arrow functions (`=>`) are a more concise syntax for writing functions. They do not have their own `this` context, which can be beneficial when using `this` inside certain scopes.
+
+**Syntax Example:**
+```javascript
+// Traditional function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+```
+
+### Example in Express Middleware
+In an Express application, middleware functions are functions that have access to the request (`req`), response (`res`), and next middleware function (`next`) in the application’s request-response cycle.
+
+**Using arrow functions as middleware:**
+```javascript
+const express = require('express');
+const app = express();
+
+// Arrow function as middleware
+app.use((req, res, next) => {
+  console.log('Middleware running');
+  next(); // Proceed to the next middleware or route handler
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(3000, () => {
+  console.log('Server running on http://localhost:3000');
+});
+```
+
+## 2. Callbacks in Node.js
+Callbacks are functions passed as arguments to other functions and are fundamental to Node.js's asynchronous nature. Node.js uses callbacks to handle operations that may take some time, such as reading files, database operations, or network requests.
+
+### What are Callbacks?
+A callback function is executed after the completion of a given task. It helps to prevent blocking operations by allowing the program to continue executing other code while waiting for the task to complete.
+
+**Syntax Example:**
+```javascript
+// Simple callback function
+function greet(name, callback) {
+  console.log('Hello ' + name);
+  callback();
+}
+
+function afterGreeting() {
+  console.log('This runs after the greeting.');
+}
+
+// Passing 'afterGreeting' as a callback to 'greet'
+greet('Ankit', afterGreeting);
+```
+
+### Example in Node.js (Asynchronous)
+```javascript
+const fs = require('fs');
+
+// Reading a file asynchronously using a callback
+fs.readFile('example.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  console.log('File content:', data);
+});
+```
+
+In the above example, `fs.readFile` reads the content of the file and, when completed, executes the provided callback function. The `err` parameter handles any error that occurs, while `data` contains the content of the file.
+
+---
+
+Both arrow functions and callbacks are essential for writing clean, efficient, and non-blocking code in Node.js and Express applications.
