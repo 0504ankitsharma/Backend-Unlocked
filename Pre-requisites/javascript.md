@@ -302,7 +302,6 @@ Let's dive into each of these methods and see how they can be used:
 These array methods are particularly useful when working with data from a database like MongoDB. For example, you might use `map()` to extract specific fields from a set of documents, `filter()` to select a subset of documents based on certain criteria, and `reduce()` to calculate aggregations or summary statistics.
 
 ```javascript
-// Example using MongoDB data
 // Example using MongoDB data with Indian names
 const users = [
   { _id: 1, name: 'Ankit', email: 'ankit@example.com', age: 19 },
@@ -315,19 +314,19 @@ const users = [
 const userNames = users.map(user => user.name);
 console.log(userNames); // ['Ankit', 'Manik', 'Sachin', 'Riya']
 
-// Use filter() to get users older than 30
+// Use filter() to get users older than 20
 const olderUsers = users.filter(user => user.age > 20);
 console.log(olderUsers);
 /*
 [
-  { _id: 3, name: 'Sachin', email: 'sachin@example.com', age: 21 },
-  { _id: 4, name: 'Riya', email: 'riya@example.com', age: 20 }
+  { _id: 2, name: 'Manik', email: 'manik@example.com', age: 22 },
+  { _id: 3, name: 'Sachin', email: 'sachin@example.com', age: 21 }
 ]
 */
 
 // Use reduce() to calculate the total age of all users
 const totalAge = users.reduce((acc, user) => acc + user.age, 0);
-console.log(totalAge); // 130
+console.log(totalAge); // 82 (19 + 22 + 21 + 20)
 
 ```
 
