@@ -303,30 +303,32 @@ These array methods are particularly useful when working with data from a databa
 
 ```javascript
 // Example using MongoDB data
+// Example using MongoDB data with Indian names
 const users = [
-  { _id: 1, name: 'Alice', email: 'alice@example.com', age: 25 },
-  { _id: 2, name: 'Bob', email: 'bob@example.com', age: 30 },
-  { _id: 3, name: 'Charlie', email: 'charlie@example.com', age: 35 },
-  { _id: 4, name: 'David', email: 'david@example.com', age: 40 },
+  { _id: 1, name: 'Ankit', email: 'ankit@example.com', age: 19 },
+  { _id: 2, name: 'Manik', email: 'manik@example.com', age: 22 },
+  { _id: 3, name: 'Sachin', email: 'sachin@example.com', age: 21 },
+  { _id: 4, name: 'Riya', email: 'riya@example.com', age: 20 },
 ];
 
 // Use map() to extract names
 const userNames = users.map(user => user.name);
-console.log(userNames); // ['Alice', 'Bob', 'Charlie', 'David']
+console.log(userNames); // ['Ankit', 'Manik', 'Sachin', 'Riya']
 
 // Use filter() to get users older than 30
-const olderUsers = users.filter(user => user.age > 30);
+const olderUsers = users.filter(user => user.age > 20);
 console.log(olderUsers);
 /*
 [
-  { _id: 3, name: 'Charlie', email: 'charlie@example.com', age: 35 },
-  { _id: 4, name: 'David', email: 'david@example.com', age: 40 }
+  { _id: 3, name: 'Sachin', email: 'sachin@example.com', age: 21 },
+  { _id: 4, name: 'Riya', email: 'riya@example.com', age: 20 }
 ]
 */
 
 // Use reduce() to calculate the total age of all users
 const totalAge = users.reduce((acc, user) => acc + user.age, 0);
 console.log(totalAge); // 130
+
 ```
 
 In this example, we demonstrate how to use `map()`, `filter()`, and `reduce()` to process an array of user data from a MongoDB-like database. These array methods are essential tools for data processing and manipulation, and they can greatly simplify your code when working with collections of data.
