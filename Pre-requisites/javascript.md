@@ -214,21 +214,36 @@ console.log(introduction2)
 ### Tagged Templates
 
 ```javascript
-function myTag(strings, ...values) {
-  let output = '';
-  for (let i = 0; i < strings.length; i++) {
-    output += strings[i];
-    if (i < values.length) {
-      output += values[i];
+// Custom function to handle tagged template literals
+function formatAndUpperCase(templateStrings, ...templateValues) {
+  // Initialize an empty string to hold the final output
+  let result = '';
+
+  // Loop through each part of the string template
+  for (let i = 0; i < templateStrings.length; i++) {
+    // Add the current string segment to the result
+    result += templateStrings[i];
+
+    // Check if there is a corresponding value to add
+    if (i < templateValues.length) {
+      result += templateValues[i];
     }
   }
-  return output.toUpperCase();
+
+  // Convert the final result to uppercase and return it
+  return result.toUpperCase();
 }
 
-let name = 'Ankit';
-let age = 19;
-let message = myTag`My name is ${name} and I am ${age} years old.`;
-console.log(message); // Output: MY NAME IS ALICE AND I AM 25 YEARS OLD.
+// Define variables to be used in the template
+let personName = 'Ankit';
+let personAge = 19;
+
+// Use the custom tagged template function
+let message = formatAndUpperCase`My name is ${personName} and I am ${personAge} years old.`;
+
+// Print the formatted message
+console.log(message); // Output: MY NAME IS ANKIT AND I AM 19 YEARS OLD.
+
 ```
 
 ## Use Cases
