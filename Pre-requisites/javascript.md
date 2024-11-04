@@ -116,14 +116,18 @@ console.log(message2);
 ### String Interpolation
 
 ```javascript
-let name = 'Alice';
-let age = 25;
+let name = 'Ankit';
+let age = 19;
 
 // Traditional string concatenation
-let introduction = 'My name is ' + name + ' and I am ' + age + ' years old.';
+let introduction1 = 'My name is ' + name + ' and I am ' + age + ' years old.';
 
 // Template literal
-let introduction = `My name is ${name} and I am ${age} years old.`;
+let introduction2 = `My name is ${name} and I am ${age} years old.`;
+
+
+console.log(introduction1)
+console.log(introduction2)
 ```
 
 ### Tagged Templates
