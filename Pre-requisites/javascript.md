@@ -891,10 +891,6 @@ The callback pattern forms the foundation of asynchronous programming in Node.js
 
 This explanation should provide you with a solid understanding of the callback pattern in Node.js, including its importance and practical examples.
 
-Here's a straightforward explanation of destructuring in JavaScript, focusing on its use with MongoDB documents and Express route parameters. This will be formatted in an `.md` file for clarity.
-
----
-
 # Understanding Destructuring in JavaScript
 
 ## What Is Destructuring?
