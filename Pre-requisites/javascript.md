@@ -100,14 +100,17 @@ Template literals, also known as template strings, are a powerful JavaScript fea
 
 ```javascript
 // Traditional string concatenation
-let message = 'This is a long message' +
-              'that spans multiple' +
-              'lines.';
+let message1 = 'This is a long message\n' +
+               'that spans multiple\n' +
+               'lines.';
 
 // Template literal
-let message = `This is a long message
+let message2 = `This is a long message
 that spans multiple
 lines.`;
+
+console.log(message1);
+console.log(message2);
 ```
 
 ### String Interpolation
