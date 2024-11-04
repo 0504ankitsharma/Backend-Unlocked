@@ -77,3 +77,79 @@ console.log(typeof function() {}); // Output: "function"
 ```
 
 Understanding variables and data types is crucial for managing the state of your application and working with data in Node.js, Express, and MongoDB. Let me know if you have any other questions!
+
+
+
+
+
+# Template Literals
+
+Template literals, also known as template strings, are a powerful JavaScript feature introduced in ES6 (ECMAScript 2015). They provide an easy way to create and manipulate strings, making it simpler to work with dynamic content and build complex string-based structures like HTML templates or API responses.
+
+## Key Features of Template Literals
+
+1. **Multiline Strings**: Template literals allow you to create strings that span multiple lines, without the need for concatenation or escape characters.
+
+2. **String Interpolation**: You can embed expressions inside template literals using the `${ }` syntax, which will be evaluated and their results inserted into the string.
+
+3. **Tagged Templates**: Template literals can be "tagged" with a function, which allows you to customize the parsing and transformation of the template.
+
+## Examples
+
+### Multiline Strings
+
+```javascript
+// Traditional string concatenation
+let message = 'This is a long message' +
+              'that spans multiple' +
+              'lines.';
+
+// Template literal
+let message = `This is a long message
+that spans multiple
+lines.`;
+```
+
+### String Interpolation
+
+```javascript
+let name = 'Alice';
+let age = 25;
+
+// Traditional string concatenation
+let introduction = 'My name is ' + name + ' and I am ' + age + ' years old.';
+
+// Template literal
+let introduction = `My name is ${name} and I am ${age} years old.`;
+```
+
+### Tagged Templates
+
+```javascript
+function myTag(strings, ...values) {
+  let output = '';
+  for (let i = 0; i < strings.length; i++) {
+    output += strings[i];
+    if (i < values.length) {
+      output += values[i];
+    }
+  }
+  return output.toUpperCase();
+}
+
+let name = 'alice';
+let age = 25;
+let message = myTag`My name is ${name} and I am ${age} years old.`;
+console.log(message); // Output: MY NAME IS ALICE AND I AM 25 YEARS OLD.
+```
+
+## Use Cases
+
+Template literals are commonly used in the following scenarios:
+
+1. **Building HTML templates**: Dynamically generating HTML content, such as in a web framework like Express.
+2. **Constructing API responses**: Easily formatting and interpolating data into API responses.
+3. **Logging and debugging**: Logging messages with dynamic data.
+4. **Internationalization (i18n)**: Translating messages with dynamic content.
+
+Overall, template literals provide a clean and expressive way to work with strings in JavaScript, making your code more readable and easier to maintain.
